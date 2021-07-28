@@ -17,34 +17,21 @@ unsigned char BA[256], BB[256];
 unsigned char idx = 0;
 
 void adlib(void) {
-  short buf[2*512];
+  short buf[1024];
   int a;
 
   int fd = open("/dev/dsp", O_WRONLY);
   a = 16; ioctl(fd, SOUND_PCM_WRITE_BITS, &a);
   a = 2; ioctl(fd, SOUND_PCM_WRITE_CHANNELS, &a);
   a = 44100; ioctl(fd, SOUND_PCM_WRITE_RATE, &a);
+  a = (4 << 16) | 9; ioctl(fd, SNDCTL_DSP_SETFRAGMENT, &a);
   for(;;) {
-    /* dump all the buffered commands to the adlib emulator */
-    for(int i=0; i<idx; i++)
-      adlib_write(BA[i], BB[i]);
-
-    /* buffer is empty now */
-    idx = 0;
-
     /* have the adlib emulator create the waveform */
     adlib_getsample(buf, 512);
 
     /* write the waveform to a file */
     write(fd, buf, sizeof(buf));
   }
-}
-
-/* buffer all incoming commands to the adlib */
-void adlib_wr(unsigned char a, unsigned char b) {
-  BA[idx] = a;
-  BB[idx] = b;
-  idx++;
 }
 
 int main() {
@@ -76,7 +63,7 @@ int main() {
           ai = (porta>>4)&0xFF;
         break;
         case 0x389:
-          adlib_wr(ai, (porta>>4)&0xFF);
+          adlib_write(ai, (porta>>4)&0xFF);
         break;
       }
     }
