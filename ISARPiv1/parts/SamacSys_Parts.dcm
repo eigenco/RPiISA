@@ -1,0 +1,40 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP AS6C4008-55PCN
+D CMOS SRAM
+F http://componentsearchengine.com/Datasheets/1/AS6C4008-55PCN.pdf
+$ENDCMP
+#
+$CMP IS61WV102416FBLL-10TLI
+D SRAM 16M (1Mx16) 10ns Async SRAM 3.3V
+K
+F https://componentsearchengine.com//IS61WV102416FBLL-10TLI.pdf
+$ENDCMP
+#
+$CMP NE555DR
+D Single Precision Timer
+F http://www.ti.com/lit/ds/symlink/ne555.pdf
+$ENDCMP
+#
+$CMP SN74LS688N
+D 8-Bit Identity/Magnitude Comparators (P=Q) with Enable
+F http://www.ti.com/lit/gpn/sn74ls688
+$ENDCMP
+#
+$CMP SST39SF040-70-4C-PHE
+D Microchip SST39SF040-70-4C-PHE, Parallel, Serial 4Mbit Flash Memory, 70ns; 5V, PDIP, 32-Pin
+F http://ww1.microchip.com/downloads/en/DeviceDoc/20005022C.pdf
+$ENDCMP
+#
+$CMP STX-3000
+D Phone Connectors 3.5mm PCB STEREO BLK PLASTIC NON THREADED
+F http://www.kycon.com/Pub_Eng_Draw/STX-3000.pdf
+$ENDCMP
+#
+$CMP SJ1-3523N
+D Phone Connectors 3.5 MM AUDIO JACK
+K
+F https://componentsearchengine.com/Datasheets/1/SJ1-3523N.pdf
+$ENDCMP
+#
+#End Doc Library
